@@ -11,8 +11,13 @@ productsRouter.get("/", (req, res, next) => {
         error: err.message
       });
     }
-    res.status(200).json(products);
-  });
+
+    const response = {
+      count: products.length,
+      products
+    };
+    res.status(200).json(response);
+  }).select("-__v");
 });
 
 // 201 --> resource created successfully
