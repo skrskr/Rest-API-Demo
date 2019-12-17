@@ -5,6 +5,7 @@ const multer = require("multer");
 
 const productsRouter = express.Router();
 const checkAuth = require("../../middleware/checkAuth");
+const ProductsController = require("../../controllers/products_controller");
 
 // filter files
 const filterFiles = (req, file, cb) => {
@@ -50,110 +51,28 @@ const upload = multer({
   fileFilter: filterFiles
 });
 
-const Product = require("../../models/product_model");
-
-productsRouter.get("/", (req, res, next) => {
-  Product.find((err, products) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({
-        error: err.message
-      });
-    }
-
-    const response = {
-      count: products.length,
-      products
-    };
-    res.status(200).json(response);
-  }).select("-__v");
-});
+productsRouter.get("/", ProductsController.products_get_all);
 
 // 201 --> resource created successfully
-productsRouter.post("/", checkAuth, upload.single("file"), (req, res, next) => {
-  const imagePath = req.file.filename;
+productsRouter.post(
+  "/",
+  checkAuth,
+  upload.single("file"),
+  ProductsController.products_create_product
+);
 
-  if (!req.body.name || !req.body.price) {
-    console.log("Missing Paramters");
-    return res.status(400).json({
-      error: "Missing Parameters"
-    });
-  }
+productsRouter.get("/:productId", ProductsController.products_get_product);
 
-  const product = new Product({
-    name: req.body.name,
-    price: req.body.price,
-    imagePath
-  });
-  console.log(product);
+productsRouter.patch(
+  "/:productId",
+  checkAuth,
+  ProductsController.products_update_product
+);
 
-  product.save((err, result) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({
-        error: err.message
-      });
-    }
-    res.status(201).json(result);
-  });
-});
-
-productsRouter.get("/:productId", (req, res, next) => {
-  const productId = req.params.productId;
-  Product.findById(productId, (err, product) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({
-        error: err.message
-      });
-    }
-    if (product) {
-      return res.status(200).json(product);
-    } else {
-      return res.status(400).json({ error: "Product not found" });
-    }
-  }).select("-__v");
-});
-
-productsRouter.patch("/:productId", checkAuth, (req, res, next) => {
-  const productId = req.params.productId;
-  console.log(req.body);
-  const updatedProduct = req.body;
-  Product.updateOne({ _id: productId }, updatedProduct, (err, result) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({
-        error: err.message
-      });
-    }
-    console.log("RESULT:", result);
-
-    if (result.n) {
-      return res.status(200).json({ msg: "Product Updated Successfully" });
-    } else {
-      return res.status(404).json({ error: "Invalid Product Id" });
-    }
-  });
-});
-
-productsRouter.delete("/:productId", checkAuth, (req, res, next) => {
-  const productId = req.params.productId;
-
-  Product.deleteOne({ _id: productId }, (err, result) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({
-        error: err.message
-      });
-    }
-    console.log("RESULT:", result);
-
-    if (result.n) {
-      return res.status(200).json({ msg: "Product deleted Successfully" });
-    } else {
-      return res.status(404).json({ error: "Invalid Product Id" });
-    }
-  });
-});
+productsRouter.delete(
+  "/:productId",
+  checkAuth,
+  ProductsController.products_delete_product
+);
 
 module.exports = productsRouter;
