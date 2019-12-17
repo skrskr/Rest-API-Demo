@@ -3,8 +3,9 @@ const ordersRouter = express.Router();
 
 const Order = require("../../models/order_model");
 const Product = require("../../models/product_model");
+const checkAuth = require("../../middleware/checkAuth");
 
-ordersRouter.get("/", (req, res, next) => {
+ordersRouter.get("/", checkAuth, (req, res, next) => {
   Order.find((err, orders) => {
     if (err) {
       console.log(err);
@@ -23,7 +24,7 @@ ordersRouter.get("/", (req, res, next) => {
 });
 
 // 201 --> resource created successfully
-ordersRouter.post("/", (req, res, next) => {
+ordersRouter.post("/", checkAuth, (req, res, next) => {
   if (!req.body.productId) {
     console.log("Missing Paramters");
     return res.status(400).json({
@@ -47,7 +48,7 @@ ordersRouter.post("/", (req, res, next) => {
   });
 });
 
-ordersRouter.get("/:orderId", (req, res, next) => {
+ordersRouter.get("/:orderId", checkAuth, (req, res, next) => {
   const orderId = req.params.orderId;
   Order.findById(orderId, (err, order) => {
     if (err) {
@@ -66,7 +67,7 @@ ordersRouter.get("/:orderId", (req, res, next) => {
     .populate("productId");
 });
 
-ordersRouter.patch("/:orderId", (req, res, next) => {
+ordersRouter.patch("/:orderId", checkAuth, (req, res, next) => {
   const orderId = req.params.orderId;
   const updatedOrder = req.body;
   Order.updateOne({ _id: orderId }, updatedOrder, (err, result) => {
@@ -86,7 +87,7 @@ ordersRouter.patch("/:orderId", (req, res, next) => {
   });
 });
 
-ordersRouter.delete("/:orderId", (req, res, next) => {
+ordersRouter.delete("/:orderId", checkAuth, (req, res, next) => {
   const orderId = req.params.orderId;
 
   Order.deleteOne({ _id: orderId }, (err, result) => {

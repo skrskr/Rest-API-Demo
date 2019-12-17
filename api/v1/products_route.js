@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require("path");
-
-const productsRouter = express.Router();
 // multer package used to upload images
 const multer = require("multer");
+
+const productsRouter = express.Router();
+const checkAuth = require("../../middleware/checkAuth");
 
 // filter files
 const filterFiles = (req, file, cb) => {
@@ -69,7 +70,7 @@ productsRouter.get("/", (req, res, next) => {
 });
 
 // 201 --> resource created successfully
-productsRouter.post("/", upload.single("file"), (req, res, next) => {
+productsRouter.post("/", checkAuth, upload.single("file"), (req, res, next) => {
   const imagePath = req.file.filename;
 
   if (!req.body.name || !req.body.price) {
@@ -114,7 +115,7 @@ productsRouter.get("/:productId", (req, res, next) => {
   }).select("-__v");
 });
 
-productsRouter.patch("/:productId", (req, res, next) => {
+productsRouter.patch("/:productId", checkAuth, (req, res, next) => {
   const productId = req.params.productId;
   console.log(req.body);
   const updatedProduct = req.body;
@@ -135,7 +136,7 @@ productsRouter.patch("/:productId", (req, res, next) => {
   });
 });
 
-productsRouter.delete("/:productId", (req, res, next) => {
+productsRouter.delete("/:productId", checkAuth, (req, res, next) => {
   const productId = req.params.productId;
 
   Product.deleteOne({ _id: productId }, (err, result) => {

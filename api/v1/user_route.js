@@ -1,6 +1,7 @@
 const express = require("express");
-const userRouter = express.Router();
 const bcrypt = require("bcrypt-nodejs");
+const jwt = require("jsonwebtoken");
+const userRouter = express.Router();
 
 const User = require("../../models/user_model");
 
@@ -87,7 +88,17 @@ userRouter.post("/login", (req, res, next) => {
           });
         }
         if (result) {
-          return res.status(200).json({ msg: "Auth Successfully" });
+          const token = jwt.sign(
+            { id: user._id, name: user.name, email: user.email },
+            process.env.JWT_SECERT_KEY,
+            {
+              expiresIn: 1800
+            }
+          );
+
+          return res
+            .status(200)
+            .json({ msg: "Auth Successfully", token: token });
         }
         res.status(401).json({
           msg: "Invalid email or password"
