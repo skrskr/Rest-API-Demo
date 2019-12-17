@@ -6,6 +6,7 @@ const app = express();
 
 const productsRouter = require("./api/v1/products_route");
 const ordersRouter = require("./api/v1/orders_route");
+const userRouter = require("./api/v1/user_route");
 
 const PORT = process.env.PORT || 3000;
 const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/apidb";
@@ -49,6 +50,7 @@ app.use("/public", express.static("public"));
 
 app.use("/products", productsRouter);
 app.use("/orders", ordersRouter);
+app.use("/user", userRouter);
 
 // Handle Errors Middlewares
 // 404 Not found
