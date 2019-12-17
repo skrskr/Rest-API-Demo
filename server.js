@@ -44,6 +44,9 @@ app.use(mogran("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// serve static files
+app.use("/public", express.static("public"));
+
 app.use("/products", productsRouter);
 app.use("/orders", ordersRouter);
 
