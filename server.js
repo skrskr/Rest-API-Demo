@@ -14,13 +14,17 @@ const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/apidb";
 
 //Setup Mongodb
 
-mongoose.connect(MONGO_URL, err => {
-  if (err) {
-    console.log("Can't connect to mongo ERR:", err);
-  } else {
-    console.log("Connected to mongodb successfully");
+mongoose.connect(
+  MONGO_URL,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  err => {
+    if (err) {
+      console.log("Can't connect to mongo ERR:", err);
+    } else {
+      console.log("Connected to mongodb successfully");
+    }
   }
-});
+);
 // Cors confige
 app.use(cors());
 

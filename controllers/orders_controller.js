@@ -3,21 +3,23 @@ const Product = require("../models/product_model");
 
 // Get all orders
 module.exports.orders_get_all = (req, res, next) => {
-  Order.find((err, orders) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({
-        error: err.message
-      });
-    }
-    const response = {
-      count: orders.length,
-      orders
-    };
-    res.status(200).json(response);
-  })
-    .select("-__v")
-    .populate("productId");
+  // Order.find((err, orders) => {
+  //   if (err) {
+  //     console.log(err);
+  //     return res.status(500).json({
+  //       error: err.message
+  //     });
+  //   }
+  //   const response = {
+  //     count: orders.length,
+  //     orders
+  //   };
+  //   res.status(200).json(response);
+  // })
+  //   .select("-__v")
+  //   .populate("productId");
+
+  res.status(200).json(res.results);
 };
 
 // create new order

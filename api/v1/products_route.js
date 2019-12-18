@@ -4,6 +4,8 @@ const path = require("path");
 const multer = require("multer");
 
 const productsRouter = express.Router();
+const Product = require("../../models/product_model");
+const paginationModel = require("../../middleware/pagination");
 const checkAuth = require("../../middleware/checkAuth");
 const ProductsController = require("../../controllers/products_controller");
 
@@ -51,7 +53,11 @@ const upload = multer({
   fileFilter: filterFiles
 });
 
-productsRouter.get("/", ProductsController.products_get_all);
+productsRouter.get(
+  "/",
+  paginationModel(Product, null),
+  ProductsController.products_get_all
+);
 
 // 201 --> resource created successfully
 productsRouter.post(

@@ -2,20 +2,21 @@ const Product = require("../models/product_model");
 
 // Get all products
 module.exports.products_get_all = (req, res, next) => {
-  Product.find((err, products) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({
-        error: err.message
-      });
-    }
+  // Product.find((err, products) => {
+  //   if (err) {
+  //     console.log(err);
+  //     return res.status(500).json({
+  //       error: err.message
+  //     });
+  //   }
+  //   const response = {
+  //     count: products.length,
+  //     products
+  //   };
+  //   res.status(200).json(response);
+  // }).select("-__v");
 
-    const response = {
-      count: products.length,
-      products
-    };
-    res.status(200).json(response);
-  }).select("-__v");
+  res.status(200).json(res.results);
 };
 
 // create new product
