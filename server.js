@@ -15,17 +15,13 @@ const MONGO_URL =
 
 //Setup Mongodb
 
-mongoose.connect(
-  MONGO_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  err => {
-    if (err) {
-      console.log("Can't connect to mongo ERR:", err);
-    } else {
-      console.log("Connected to mongodb successfully");
-    }
+mongoose.connect(MONGO_URL, { useNewUrlParser: true }, err => {
+  if (err) {
+    console.log("Can't connect to mongo ERR:", err);
+  } else {
+    console.log("Connected to mongodb successfully");
   }
-);
+});
 // Cors confige
 app.use(cors());
 
