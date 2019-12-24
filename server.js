@@ -11,7 +11,7 @@ const userRouter = require("./api/v1/user_route");
 
 const PORT = process.env.PORT || 3000;
 const MONGO_URL =
-  "mongodb+srv://sakr:sakr@cluster0-ocmui.mongodb.net/apidb?retryWrites=true&w=majority";
+  "mongodb://sakr:sakr@cluster0-shard-00-00-ocmui.mongodb.net:27017,cluster0-shard-00-01-ocmui.mongodb.net:27017,cluster0-shard-00-02-ocmui.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
 
 //Setup Mongodb
 
