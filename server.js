@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const mogran = require("morgan");
+// const mogran = require("morgan");
 const cors = require("cors");
-require("dotenv").config();
+// require("dotenv").config();
 const app = express();
 
 const productsRouter = require("./api/v1/products_route");
@@ -31,7 +31,7 @@ mongoose.connect(
 app.use(cors());
 
 //loging pacage
-app.use(mogran("dev"));
+// app.use(mogran("dev"));
 
 //CORS middleware
 // app.use((req, res, next) => {
