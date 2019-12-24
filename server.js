@@ -10,7 +10,9 @@ const ordersRouter = require("./api/v1/orders_route");
 const userRouter = require("./api/v1/user_route");
 
 const PORT = process.env.PORT || 3000;
-const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/apidb";
+const MONGO_URL =
+  process.env.MONGO_URL ||
+  "mongodb+srv://sakr:sakr@cluster0-ocmui.mongodb.net/test?retryWrites=true&w=majority";
 
 //Setup Mongodb
 
