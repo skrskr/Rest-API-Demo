@@ -1,0 +1,468 @@
+{
+	"info": {
+		"_postman_id": "df0d7516-c7d2-4e48-88d1-8a2be4483d8b",
+		"name": "rest-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "get-request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/products",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDI3OTI3ODYyOThhMDAxNzBkMjEyYyIsIm5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNTc3MjIxNTI3LCJleHAiOjE1NzcyMjMzMjd9.SobQNtglwzScSm2mgWs4eDAgYJfcyYuJHULbTuwoz-M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "product 235ffsd",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "789",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Mohamed sakr/Desktop/teams.png"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/products",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch-request",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDI3OTI3ODYyOThhMDAxNzBkMjEyYyIsIm5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNTc3MjIyMjI1LCJleHAiOjE1NzcyMjQwMjV9.JCMDYjNSatQ2M2Us6oSPwFVALCv9AW3YGDXvf-iZELc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"product - update\",\n\t\"price\":125\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/products/5e027fe302980d0017a754f5",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"products",
+								"5e027fe302980d0017a754f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-repest",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDI3OTI3ODYyOThhMDAxNzBkMjEyYyIsIm5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNTc3MjIxNTI3LCJleHAiOjE1NzcyMjMzMjd9.SobQNtglwzScSm2mgWs4eDAgYJfcyYuJHULbTuwoz-M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/products/5e027fe302980d0017a754f5",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"products",
+								"5e027fe302980d0017a754f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-by-id-request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/products/5e027fe302980d0017a754f5",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"products",
+								"5e027fe302980d0017a754f5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "get-request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDI3OTI3ODYyOThhMDAxNzBkMjEyYyIsIm5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNTc3MjIxNTI3LCJleHAiOjE1NzcyMjMzMjd9.SobQNtglwzScSm2mgWs4eDAgYJfcyYuJHULbTuwoz-M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/orders?page=1&limit=2",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDI3OTI3ODYyOThhMDAxNzBkMjEyYyIsIm5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNTc3MjIxNTI3LCJleHAiOjE1NzcyMjMzMjd9.SobQNtglwzScSm2mgWs4eDAgYJfcyYuJHULbTuwoz-M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"productId\": \"5e027e3702980d0017a754f2\",\n\t\"qty\":120\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/orders",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch-request",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDI3OTI3ODYyOThhMDAxNzBkMjEyYyIsIm5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNTc3MjIxNTI3LCJleHAiOjE1NzcyMjMzMjd9.SobQNtglwzScSm2mgWs4eDAgYJfcyYuJHULbTuwoz-M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"qty\": 255\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/orders/5e02817e02980d0017a754f6",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"orders",
+								"5e02817e02980d0017a754f6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-repest",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDI3OTI3ODYyOThhMDAxNzBkMjEyYyIsIm5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNTc3MjIxNTI3LCJleHAiOjE1NzcyMjMzMjd9.SobQNtglwzScSm2mgWs4eDAgYJfcyYuJHULbTuwoz-M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/orders/5e02820702980d0017a754f7",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"orders",
+								"5e02820702980d0017a754f7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-by-id-request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDI3OTI3ODYyOThhMDAxNzBkMjEyYyIsIm5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNTc3MjIxNTI3LCJleHAiOjE1NzcyMjMzMjd9.SobQNtglwzScSm2mgWs4eDAgYJfcyYuJHULbTuwoz-M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/orders/5e02817e02980d0017a754f6",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"orders",
+								"5e02817e02980d0017a754f6"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "error",
+			"item": [
+				{
+					"name": "err-request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/fdf",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"fdf"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup-request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"user1\",\n\t\"email\": \"user1@test.com\",\n\t\"password\": \"user1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/user/signup",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login-request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"password\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://rocky-wave-24608.herokuapp.com/user/login",
+							"protocol": "https",
+							"host": [
+								"rocky-wave-24608",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	]
+}
