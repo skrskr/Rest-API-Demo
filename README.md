@@ -9,7 +9,7 @@ user can register and then login to get token to add or update or delete order o
 ### Products
 
 user can get all products, product by id, add new product, update product and delete product.
-[Get Products](https://rocky-wave-24608.herokuapp.com/products)
+[Get Products](https://rocky-wave-24608.herokuapp.com/products?page=1&limit=2)
 
 ### Orders
 
